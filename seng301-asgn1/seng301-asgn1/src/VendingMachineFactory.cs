@@ -36,6 +36,7 @@ namespace seng301_asgn1 {
 
         public int createVendingMachine(List<int> coinKinds, int selectionButtonCount) {
             // TODO: Implement
+            VendingMachine newMachine = new VendingMachine();
             return 0;
         }
 

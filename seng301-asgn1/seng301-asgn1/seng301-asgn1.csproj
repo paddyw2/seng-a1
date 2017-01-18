@@ -58,6 +58,7 @@
     <Compile Include="src\Frontend1\IVendingMachineFactory.cs" />
     <Compile Include="src\Frontend1\Pop.cs" />
     <Compile Include="src\ScriptProcessor.cs" />
+    <Compile Include="src\VendingMachine.cs" />
     <Compile Include="src\VendingMachineFactory.cs" />
   </ItemGroup>
   <ItemGroup>
