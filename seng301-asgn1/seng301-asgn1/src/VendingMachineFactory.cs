@@ -31,20 +31,41 @@ namespace seng301_asgn1 {
     public class VendingMachineFactory : IVendingMachineFactory {
 
         private int totalMachines;
+        private List<VendingMachine> createdMachines;
 
         public VendingMachineFactory() {
             totalMachines = 0;
+            createdMachines = new List<VendingMachine>();
         }
 
         public int createVendingMachine(List<int> coinKinds, int selectionButtonCount) {
             int newId = totalMachines;
             totalMachines++;
             VendingMachine newMachine = new VendingMachine(newId, coinKinds, selectionButtonCount);
+            createdMachines.Add(newMachine);
             return newMachine.getId();
         }
 
         public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
             // TODO: Implement
+            VendingMachine machine = getMachineById(vmIndex);
+
+        }
+
+        private VendingMachine getMachineById(int id)
+        {
+            // gets a previously created vending machine
+            // by machine id
+            VendingMachine machine = null;
+            foreach (VendingMachine vend in createdMachines)
+            {
+                if (vend.getId() == id)
+                {
+                    machine = vend;
+                    break;
+                }
+            }
+            return machine;
         }
 
         public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins) {

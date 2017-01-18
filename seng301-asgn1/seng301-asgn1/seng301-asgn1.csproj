@@ -60,6 +60,7 @@
     <Compile Include="src\ScriptProcessor.cs" />
     <Compile Include="src\VendingMachine.cs" />
     <Compile Include="src\VendingMachineFactory.cs" />
+    <Compile Include="src\VendingPop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
