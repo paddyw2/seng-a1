@@ -30,14 +30,17 @@ namespace seng301_asgn1 {
     /// </summary>
     public class VendingMachineFactory : IVendingMachineFactory {
 
+        private int totalMachines;
+
         public VendingMachineFactory() {
-            // TODO: Implement
+            totalMachines = 0;
         }
 
         public int createVendingMachine(List<int> coinKinds, int selectionButtonCount) {
-            // TODO: Implement
-            VendingMachine newMachine = new VendingMachine();
-            return 0;
+            int newId = totalMachines;
+            totalMachines++;
+            VendingMachine newMachine = new VendingMachine(newId, coinKinds, selectionButtonCount);
+            return newMachine.getId();
         }
 
         public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
