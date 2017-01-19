@@ -9,62 +9,61 @@ namespace seng301_asgn1
 {
     public class VendingMachine
     {
-        private int id;
-        private int popButtons;
-        private List<Coin> acceptedCoins;
-        private List<VendingPop> acceptedPops;
+        private Specifications specs;
+        private CoinChute coinChute;
+        private PopChute popChute;
+        private Dispenser dispenser;
+
         public VendingMachine()
         {
-            Console.Write("No parameters provided!\n");
+            Console.WriteLine("No parameters provided!");
         }
 
         public VendingMachine(int machineId, List<int> listOfCoins, int buttonCount)
         {
-            Console.Write("Creating vending machine!\n");
-            // assign button numbers and machine id
-            id = machineId;
-            popButtons = buttonCount;
-            // check for coin kind errors
-            acceptedPops = new List<VendingPop>();
-            acceptedCoins = new List<Coin>();
-            foreach(int coinKind in listOfCoins)
-            {
-                // search acceptedCoins for duplicate
-                foreach(Coin coin in acceptedCoins)
-                {
-                    if (coin.Value == coinKind)
-                        throw new Exception("Duplicate coin");
-                }
-                // if no duplicates, then create new coin
-                // and add to acceptedCoins list
-                Coin newCoin = new Coin(coinKind);
-                acceptedCoins.Add(newCoin);
-            }
+            Console.WriteLine("Creating vending machine!");
+            specs = new Specifications();
+            specs.initSpecs(listOfCoins, machineId, buttonCount);
+            coinChute = new CoinChute(specs.getAcceptedCoins());
+            popChute = new PopChute();
+            dispenser = new Dispenser();
         }
 
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
-            if (popNames.Capacity != popButtons)
-                throw new Exception("Buttons and pop varieties differ");
-
-            if (popNames.Capacity != popCosts.Capacity)
-                throw new Exception("Number of pops different to number of prices");
-
-            for(int i = 0; i<popNames.Capacity;i++)
+            try
             {
-                string name = popNames.ElementAt(i);
-                int price = popCosts.ElementAt(i);
-                VendingPop newPop = new VendingPop(name);
-                newPop.setCost(price);
-                acceptedPops.Add(newPop);
+                specs.configurePop(popNames, popCosts);
+            } catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
             }
+        }
 
+        public void loadCoins(int coinKindIndex, List<Coin> coins)
+        {
+            coinChute.loadCoins(coinKindIndex, coins);
 
+        }
+
+        public void loadPops(int popKindIndex, List<Pop> pops)
+        {
+            popChute.loadPops(popKindIndex, pops);
+        }
+
+        public void insertCoin(Coin coin)
+        {
+            // first check coin type
+            bool validCoin = specs.checkCoinType(coin);
+
+            // if valid, then insert into chute
+            if(validCoin)
+                coinChute.insertCoin(coin);
         }
 
         public int getId()
         {
-            return id;
+            return specs.getId();
         }
     }
 }

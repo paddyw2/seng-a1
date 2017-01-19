@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\CoinChute.cs" />
+    <Compile Include="src\CoinSlot.cs" />
+    <Compile Include="src\Dispenser.cs" />
     <Compile Include="src\Frontend1.Parser\SENG301VMAnalyzer.cs" />
     <Compile Include="src\Frontend1.Parser\VendingMachineAnalyzer.cs" />
     <Compile Include="src\Frontend1.Parser\VendingMachineConstants.cs" />
@@ -57,7 +60,10 @@
     <Compile Include="src\Frontend1\Deliverable.cs" />
     <Compile Include="src\Frontend1\IVendingMachineFactory.cs" />
     <Compile Include="src\Frontend1\Pop.cs" />
+    <Compile Include="src\PopChute.cs" />
+    <Compile Include="src\PopSlot.cs" />
     <Compile Include="src\ScriptProcessor.cs" />
+    <Compile Include="src\Specifications.cs" />
     <Compile Include="src\VendingMachine.cs" />
     <Compile Include="src\VendingMachineFactory.cs" />
     <Compile Include="src\VendingPop.cs" />

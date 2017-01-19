@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -47,9 +48,50 @@ namespace seng301_asgn1 {
         }
 
         public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
-            // TODO: Implement
+            Console.WriteLine("VF: Configuring...");
             VendingMachine machine = getMachineById(vmIndex);
+            machine.configurePop(popNames, popCosts);
+        }
 
+        public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins) {
+            Console.WriteLine("VF: Loading coins...");
+            VendingMachine machine = getMachineById(vmIndex);
+            machine.loadCoins(coinKindIndex, coins);
+        }
+
+        public void loadPops(int vmIndex, int popKindIndex, List<Pop> pops) {
+            Console.WriteLine("VF: Loading pops...");
+            VendingMachine machine = getMachineById(vmIndex);
+            machine.loadPops(popKindIndex, pops);
+        }
+
+        public void insertCoin(int vmIndex, Coin coin) {
+            // TODO: Implement
+            Console.WriteLine("VF: Inserting coin");
+            VendingMachine machine = getMachineById(vmIndex);
+            machine.insertCoin(coin);
+        }
+
+        public void pressButton(int vmIndex, int value) {
+            // TODO: Implement
+            Console.WriteLine("VF: Pressing button...");
+        }
+
+        public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
+            // TODO: Implement
+            Console.WriteLine("VF: Extracting deliverable from chute");
+
+            return new List<Deliverable>();
+        }
+
+        public List<IList> unloadVendingMachine(int vmIndex) {
+            // TODO: Implement
+            Console.WriteLine("VF: Unloading vending machine");
+
+            return new List<IList>() {
+                new List<Coin>(),
+                new List<Coin>(),
+                new List<Pop>() };
         }
 
         private VendingMachine getMachineById(int id)
@@ -68,33 +110,6 @@ namespace seng301_asgn1 {
             return machine;
         }
 
-        public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins) {
-            // TODO: Implement
-        }
 
-        public void loadPops(int vmIndex, int popKindIndex, List<Pop> pops) {
-            // TODO: Implement
-        }
-
-        public void insertCoin(int vmIndex, Coin coin) {
-            // TODO: Implement
-        }
-
-        public void pressButton(int vmIndex, int value) {
-            // TODO: Implement
-        }
-
-        public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
-            // TODO: Implement
-            return new List<Deliverable>();
-        }
-
-        public List<IList> unloadVendingMachine(int vmIndex) {
-            // TODO: Implement
-            return new List<IList>() {
-                new List<Coin>(),
-                new List<Coin>(),
-                new List<Pop>() };
-            }
     }
 }
