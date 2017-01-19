@@ -13,7 +13,6 @@ namespace seng301_asgn1
         private CoinChute coinChute;
         private PopChute popChute;
         private Dispenser dispenser;
-
         public VendingMachine()
         {
             Console.WriteLine("No parameters provided!");
@@ -31,13 +30,7 @@ namespace seng301_asgn1
 
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
-            try
-            {
-                specs.configurePop(popNames, popCosts);
-            } catch (Exception e)
-            {
-                Console.WriteLine("Error: " + e.Message);
-            }
+            specs.configurePop(popNames, popCosts);
         }
 
         public void loadCoins(int coinKindIndex, List<Coin> coins)
@@ -57,8 +50,10 @@ namespace seng301_asgn1
             bool validCoin = specs.checkCoinType(coin);
 
             // if valid, then insert into chute
-            if(validCoin)
+            if (validCoin)
                 coinChute.insertCoin(coin);
+            else
+                dispenser.dispenseItems(null, new List<Coin> { coin });
         }
 
         public void pressButton(int buttonIndex)
@@ -72,16 +67,15 @@ namespace seng301_asgn1
             // get inserted amount
             int val = coinChute.getInsertValue();
 
-            // not enough money
             if(val < price)
             {
-                // dispense entered money
-            } else if (val == price)
-            {
-                // no change necessary
+                // do nothing
             } else
             {
-                // return pop and change
+                // calc change and dispense pop
+                int change = val - price;
+                List<Coin> changeCoins = coinChute.releaseChange(change);
+                dispenser.dispenseItems(pop, changeCoins);
             }
         }
 
