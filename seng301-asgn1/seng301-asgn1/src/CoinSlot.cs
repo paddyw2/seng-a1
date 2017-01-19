@@ -23,6 +23,7 @@ namespace seng301_asgn1
         {
             // this presumes each coin is of
             // correct type
+            int coinVal = coinType.Value;
             foreach(Coin coin in coins)
             {
                 incQuantity();

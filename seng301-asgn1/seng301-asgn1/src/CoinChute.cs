@@ -9,11 +9,14 @@ namespace seng301_asgn1
 {
     public class CoinChute
     {
-        List<CoinSlot> slots;
+        private List<CoinSlot> slots;
+        private int insertValue;
+        
         public CoinChute(List<Coin> listOfCoins)
         {
             Console.WriteLine("Creating coin chute");
             slots = new List<CoinSlot>();
+            insertValue = 0;
             foreach (Coin coin in listOfCoins)
             {
                 CoinSlot newSlot = new CoinSlot(coin);
@@ -45,10 +48,21 @@ namespace seng301_asgn1
                 int val = type.Value;
                 if (coin.Value == val)
                 {
+                    insertValue = insertValue + val;
                     slot.incQuantity();
                     break;
                 }
             }
+        }
+
+        public int getInsertValue()
+        {
+            return insertValue;
+        }
+
+        public void resetInsertValue()
+        {
+            insertValue = 0;
         }
     }
 }

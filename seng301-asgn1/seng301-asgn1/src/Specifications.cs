@@ -42,13 +42,13 @@ namespace seng301_asgn1
 
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
-            if (popNames.Capacity != popButtons)
-                throw new Exception("Buttons and pop varieties differ");
+            if ((popNames.Capacity-1) != popButtons)
+                throw new Exception("Buttons and pop varieties differ: " + popNames.Capacity + ", " + popButtons);
 
             if (popNames.Capacity != popCosts.Capacity)
                 throw new Exception("Number of pops different to number of prices");
 
-            for (int i = 0; i < popNames.Capacity; i++)
+            for (int i = 0; i < (popNames.Capacity-1); i++)
             {
                 string name = popNames.ElementAt(i);
                 int price = popCosts.ElementAt(i);
@@ -70,6 +70,21 @@ namespace seng301_asgn1
                 }
             }
             return coinIsValid;
+        }
+
+        public VendingPop getPopByIndex(int index)
+        {
+            int counter = 0;
+            VendingPop returnPop = null;
+            foreach(VendingPop pop in acceptedPops)
+            {
+                if (counter == index)
+                {
+                    returnPop = pop;
+                    break;
+                }
+            }
+            return returnPop;
         }
 
         public List<Coin> getAcceptedCoins()

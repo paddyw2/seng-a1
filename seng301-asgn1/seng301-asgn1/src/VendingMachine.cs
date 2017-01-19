@@ -61,6 +61,30 @@ namespace seng301_asgn1
                 coinChute.insertCoin(coin);
         }
 
+        public void pressButton(int buttonIndex)
+        {
+            // get pop by button index
+            VendingPop pop = specs.getPopByIndex(buttonIndex);
+
+            // get pop price
+            int price = pop.getCost();
+
+            // get inserted amount
+            int val = coinChute.getInsertValue();
+
+            // not enough money
+            if(val < price)
+            {
+                // dispense entered money
+            } else if (val == price)
+            {
+                // no change necessary
+            } else
+            {
+                // return pop and change
+            }
+        }
+
         public int getId()
         {
             return specs.getId();
