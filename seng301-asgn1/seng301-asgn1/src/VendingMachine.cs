@@ -75,8 +75,39 @@ namespace seng301_asgn1
                 // calc change and dispense pop
                 int change = val - price;
                 List<Coin> changeCoins = coinChute.releaseChange(change);
-                dispenser.dispenseItems(pop, changeCoins);
+                // decrement pop from chute
+                bool success = popChute.removePop(pop);
+                if (success) {
+                    dispenser.dispenseItems(pop, changeCoins);
+                }
+                else
+                {
+                    // if either no matching pop found, or
+                    // not enough pops then
+                    // only dispense change
+                    Console.WriteLine("Name error?" + pop.Name);
+                    pop = null;
+                    dispenser.dispenseItems(pop, changeCoins);
+                }
             }
+
+            // bank inserted money and reset inserted value
+            coinChute.bankInsertValue();
+        }
+
+        public List<Deliverable> extractItems()
+        {
+            return dispenser.extractItems();
+        }
+
+        public List<IList> teardown()
+        {
+            List<Coin> bank = coinChute.getBankedCoins();
+            // still got to get remaining change coins
+            // and remaining pops from each respective
+            // chute  
+
+            return new List<IList>();
         }
 
         public int getId()

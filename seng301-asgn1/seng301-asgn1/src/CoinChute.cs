@@ -11,12 +11,18 @@ namespace seng301_asgn1
     {
         private List<CoinSlot> slots;
         private int insertValue;
+        private int bankedValue;
+        private List<Coin> bankedCoins;
+        private List<Coin> insertedCoins;
         
         public CoinChute(List<Coin> listOfCoins)
         {
             Console.WriteLine("Creating coin chute");
             slots = new List<CoinSlot>();
             insertValue = 0;
+            bankedValue = 0;
+            bankedCoins = new List<Coin>();
+            insertedCoins = new List<Coin>();
             foreach (Coin coin in listOfCoins)
             {
                 CoinSlot newSlot = new CoinSlot(coin);
@@ -42,17 +48,18 @@ namespace seng301_asgn1
 
         public void insertCoin(Coin coin)
         {
-            foreach(CoinSlot slot in slots)
+            insertValue = insertValue + coin.Value;
+            insertedCoins.Add(coin);
+        }
+
+        public void bankInsertValue()
+        {
+            bankedValue = bankedValue + insertValue;
+            foreach(Coin coin in insertedCoins)
             {
-                Coin type = slot.getType();
-                int val = type.Value;
-                if (coin.Value == val)
-                {
-                    insertValue = insertValue + val;
-                    slot.incQuantity();
-                    break;
-                }
+                bankedValue.Add(coin);
             }
+            resetInsertValue();
         }
 
         public List<Coin> releaseChange(int val)
@@ -109,6 +116,11 @@ namespace seng301_asgn1
             return coinChange;
         }
 
+        public List<Coin> getBankedCoins()
+        {
+            return bankedCoins;
+        }
+
         public int getInsertValue()
         {
             return insertValue;
@@ -117,6 +129,7 @@ namespace seng301_asgn1
         public void resetInsertValue()
         {
             insertValue = 0;
+            insertedCoins.Clear();
         }
     }
 }

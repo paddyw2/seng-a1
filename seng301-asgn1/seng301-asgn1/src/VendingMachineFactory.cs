@@ -73,19 +73,24 @@ namespace seng301_asgn1 {
         }
 
         public void pressButton(int vmIndex, int value) {
-            // TODO: Implement
             Console.WriteLine("VF: Pressing button...");
+            VendingMachine machine = getMachineById(vmIndex);
+            machine.pressButton(value);
         }
 
         public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
-            // TODO: Implement
             Console.WriteLine("VF: Extracting deliverable from chute");
-
-            return new List<Deliverable>();
+            VendingMachine machine = getMachineById(vmIndex);
+            List<Deliverable> items = machine.extractItems();
+            return items;
         }
 
         public List<IList> unloadVendingMachine(int vmIndex) {
             // TODO: Implement
+            // returns
+            // 1. Money in coin slots
+            // 2. Money in da bank
+            // 3. Unsold pops
             Console.WriteLine("VF: Unloading vending machine");
 
             return new List<IList>() {
@@ -93,6 +98,8 @@ namespace seng301_asgn1 {
                 new List<Coin>(),
                 new List<Pop>() };
         }
+
+        // Helper Methods
 
         private VendingMachine getMachineById(int id)
         {

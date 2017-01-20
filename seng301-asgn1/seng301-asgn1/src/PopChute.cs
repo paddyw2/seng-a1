@@ -27,6 +27,8 @@ namespace seng301_asgn1
 
         public void loadPops(int index, List<Pop> pops)
         {
+            // first create slots
+            createSlots(pops);
             int counter = 0;
             foreach (PopSlot slot in slots)
             {
@@ -37,7 +39,22 @@ namespace seng301_asgn1
                 }
                 counter++;
             }
+        }
 
+        public bool removePop(Pop pop)
+        {
+            bool success = false;
+            foreach(PopSlot slot in slots)
+            {
+                Console.WriteLine(slot.getName() + " : " + slot.getQuantity());
+                if(pop.Name.Equals(slot.getName()) && slot.getQuantity() > 0)
+                {
+                    slot.decQuantity();
+                    success = true;
+                    break;
+                }
+            }
+            return success;
         }
 
     }

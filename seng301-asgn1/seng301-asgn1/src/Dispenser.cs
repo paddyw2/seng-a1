@@ -18,10 +18,14 @@ namespace seng301_asgn1
 
         public void dispenseItems(Pop pop, List<Coin> changeList)
         {
-            if(pop != null)
+            if (pop != null)
+            {
                 dispensedItems.Add(pop);
+                Console.WriteLine("Dispensing " + pop.Name);
+            }
             foreach(Coin coin in changeList)
             {
+                Console.WriteLine("Dispensing " + coin.Value);
                 dispensedItems.Add(coin);
             }
         }
