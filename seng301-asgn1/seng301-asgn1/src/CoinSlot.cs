@@ -14,7 +14,6 @@ namespace seng301_asgn1
 
         public CoinSlot(Coin coin)
         {
-            Console.WriteLine("Creating individual coin slot");
             quantity = 0;
             coinType = new Coin(coin.Value);
         }
@@ -26,6 +25,7 @@ namespace seng301_asgn1
             int coinVal = coinType.Value;
             foreach(Coin coin in coins)
             {
+                Console.WriteLine("Loading coin: " + coinType.Value);
                 incQuantity();
             }
         }

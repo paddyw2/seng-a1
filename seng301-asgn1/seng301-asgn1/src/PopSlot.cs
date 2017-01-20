@@ -20,10 +20,11 @@ namespace seng301_asgn1
 
         public void loadPops(List<Pop> pops)
         {
-            // this presumes each coin is of
+            // this presumes each pop is of
             // correct type
             foreach(Pop pop in pops)
             {
+                Console.WriteLine("Loading pop: " + getName());
                 incQuantity();
             }
         }

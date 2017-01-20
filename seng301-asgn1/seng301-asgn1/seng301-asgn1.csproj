@@ -68,6 +68,7 @@
     <Compile Include="src\VendingMachine.cs" />
     <Compile Include="src\VendingMachineFactory.cs" />
     <Compile Include="src\VendingPop.cs" />
+    <None Include="test-scripts\U04-bad-script4" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

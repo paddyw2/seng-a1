@@ -12,7 +12,6 @@ namespace seng301_asgn1
         private List<Deliverable> dispensedItems;
         public Dispenser()
         {
-            Console.WriteLine("Creating dispenser...");
             dispensedItems = new List<Deliverable>();
         }
 
@@ -21,11 +20,11 @@ namespace seng301_asgn1
             if (pop != null)
             {
                 dispensedItems.Add(pop);
-                Console.WriteLine("Dispensing " + pop.Name);
+                Console.WriteLine("Delivery chute: " + pop.Name);
             }
             foreach(Coin coin in changeList)
             {
-                Console.WriteLine("Dispensing " + coin.Value);
+                Console.WriteLine("Delivery chute: " + coin.Value);
                 dispensedItems.Add(coin);
             }
         }

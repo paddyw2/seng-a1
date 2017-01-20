@@ -12,7 +12,6 @@ namespace seng301_asgn1
         List<PopSlot> slots;
         public PopChute()
         {
-            Console.WriteLine("Creating pop chute");
             slots = new List<PopSlot>();
         }
 
@@ -46,7 +45,7 @@ namespace seng301_asgn1
             bool success = false;
             foreach(PopSlot slot in slots)
             {
-                Console.WriteLine(slot.getName() + " : " + slot.getQuantity());
+                Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
                 if(pop.Name.Equals(slot.getName()) && slot.getQuantity() > 0)
                 {
                     slot.decQuantity();

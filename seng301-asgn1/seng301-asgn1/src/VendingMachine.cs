@@ -20,7 +20,6 @@ namespace seng301_asgn1
 
         public VendingMachine(int machineId, List<int> listOfCoins, int buttonCount)
         {
-            Console.WriteLine("Creating vending machine!");
             specs = new Specifications();
             specs.initSpecs(listOfCoins, machineId, buttonCount);
             coinChute = new CoinChute(specs.getAcceptedCoins());
@@ -60,6 +59,7 @@ namespace seng301_asgn1
         {
             // get pop by button index
             VendingPop pop = specs.getPopByIndex(buttonIndex);
+            Console.WriteLine("Pop: " + pop.Name);
 
             // get pop price
             int price = pop.getCost();
@@ -70,10 +70,12 @@ namespace seng301_asgn1
             if(val < price)
             {
                 // do nothing
+                Console.WriteLine("Not enough money: swallowing change");
             } else
             {
                 // calc change and dispense pop
                 int change = val - price;
+                Console.WriteLine("Price: " + price + " Change: " + change);
                 List<Coin> changeCoins = coinChute.releaseChange(change);
                 // decrement pop from chute
                 bool success = popChute.removePop(pop);
@@ -85,7 +87,8 @@ namespace seng301_asgn1
                     // if either no matching pop found, or
                     // not enough pops then
                     // only dispense change
-                    Console.WriteLine("Name error?" + pop.Name);
+
+                    Console.WriteLine("Not enough pops: swallowing change");
                     pop = null;
                     dispenser.dispenseItems(pop, changeCoins);
                 }
@@ -102,7 +105,6 @@ namespace seng301_asgn1
 
         public List<IList> teardown()
         {
-            Console.WriteLine("Teardown...");
             List<Coin> change = coinChute.emptyCoinSlots();
             List<Coin> bank = coinChute.getBankedCoins();
             List<Pop> pops = popChute.emptyPopSlots();

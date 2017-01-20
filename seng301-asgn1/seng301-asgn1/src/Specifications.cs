@@ -16,7 +16,6 @@ namespace seng301_asgn1
 
         public Specifications()
         {
-            Console.WriteLine("Creating specifications");
         }
 
         public void initSpecs(List<int> listOfCoins, int machineId, int buttonCount)

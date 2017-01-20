@@ -35,11 +35,16 @@ namespace seng301_asgn1 {
         private List<VendingMachine> createdMachines;
 
         public VendingMachineFactory() {
+            // creates a VendingMachineFactory
+            // and sets the default variable values
             totalMachines = 0;
             createdMachines = new List<VendingMachine>();
         }
 
         public int createVendingMachine(List<int> coinKinds, int selectionButtonCount) {
+            // creates a vending machine with coin types and number of buttons
+            // as specifications
+            // returns the machine id
             int newId = totalMachines;
             totalMachines++;
             VendingMachine newMachine = new VendingMachine(newId, coinKinds, selectionButtonCount);
@@ -48,37 +53,42 @@ namespace seng301_asgn1 {
         }
 
         public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
+            // configures the chosen machine with accepted pops by name, along
+            // with their costs
             Console.WriteLine("VF: Configuring...");
             VendingMachine machine = getMachineById(vmIndex);
             machine.configurePop(popNames, popCosts);
         }
 
         public void loadCoins(int vmIndex, int coinKindIndex, List<Coin> coins) {
-            Console.WriteLine("VF: Loading coins...");
+            // loads the chosen machine with a float, i.e. change
             VendingMachine machine = getMachineById(vmIndex);
             machine.loadCoins(coinKindIndex, coins);
         }
 
         public void loadPops(int vmIndex, int popKindIndex, List<Pop> pops) {
-            Console.WriteLine("VF: Loading pops...");
+            // loads the chosen machine with pops that can be sold
             VendingMachine machine = getMachineById(vmIndex);
             machine.loadPops(popKindIndex, pops);
         }
 
         public void insertCoin(int vmIndex, Coin coin) {
-            // TODO: Implement
-            Console.WriteLine("VF: Inserting coin");
+            // inserts a coin into the chosen machine
             VendingMachine machine = getMachineById(vmIndex);
             machine.insertCoin(coin);
         }
 
         public void pressButton(int vmIndex, int value) {
+            // presses a button (indicating a pop) on the
+            // chosen machine
             Console.WriteLine("VF: Pressing button...");
             VendingMachine machine = getMachineById(vmIndex);
             machine.pressButton(value);
         }
 
         public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
+            // returns both the purchased pop and appropriate change
+            // that is sitting inside the delivery chute
             Console.WriteLine("VF: Extracting deliverable from chute");
             VendingMachine machine = getMachineById(vmIndex);
             List<Deliverable> items = machine.extractItems();
@@ -86,12 +96,9 @@ namespace seng301_asgn1 {
         }
 
         public List<IList> unloadVendingMachine(int vmIndex) {
-            // TODO: Implement
-            // returns
-            // 1. Money in coin slots
-            // 2. Money in da bank
-            // 3. Unsold pops
-            Console.WriteLine("VF: Unloading vending machine");
+            // removes inserted money, remaining change, and unsold
+            // pops from the chosen machine
+            Console.WriteLine("VF: Unloading/teardown");
             VendingMachine machine = getMachineById(vmIndex);
             List<IList> teardownItems = machine.teardown();
             return teardownItems;

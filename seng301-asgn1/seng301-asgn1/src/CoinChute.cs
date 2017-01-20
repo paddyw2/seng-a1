@@ -17,7 +17,6 @@ namespace seng301_asgn1
         
         public CoinChute(List<Coin> listOfCoins)
         {
-            Console.WriteLine("Creating coin chute");
             slots = new List<CoinSlot>();
             insertValue = 0;
             bankedValue = 0;
@@ -46,6 +45,7 @@ namespace seng301_asgn1
 
         public void insertCoin(Coin coin)
         {
+            Console.WriteLine("Inserting coin: " + coin.Value);
             insertValue = insertValue + coin.Value;
             insertedCoins.Add(coin);
         }
@@ -90,6 +90,7 @@ namespace seng301_asgn1
                     if(val>=0)
                     {
                         coinChange.Add(largestSlot.getType());
+                        Console.WriteLine("Dispensing change: " + (largestSlot.getType()).Value);
                         largestSlot.decQuantity();
                         if (val == 0)
                         {
