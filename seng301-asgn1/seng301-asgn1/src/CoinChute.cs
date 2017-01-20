@@ -28,7 +28,6 @@ namespace seng301_asgn1
                 CoinSlot newSlot = new CoinSlot(coin);
                 slots.Add(newSlot);
             }
-
         }
 
         public void loadCoins(int index, List<Coin> coins)
@@ -43,7 +42,6 @@ namespace seng301_asgn1
                 }
                 counter++;
             }
-
         }
 
         public void insertCoin(Coin coin)
@@ -57,7 +55,7 @@ namespace seng301_asgn1
             bankedValue = bankedValue + insertValue;
             foreach(Coin coin in insertedCoins)
             {
-                bankedValue.Add(coin);
+                bankedCoins.Add(coin);
             }
             resetInsertValue();
         }
@@ -119,6 +117,26 @@ namespace seng301_asgn1
         public List<Coin> getBankedCoins()
         {
             return bankedCoins;
+        }
+
+        public List<Coin> emptyCoinSlots()
+        {
+            List<Coin> allCoins = new List<Coin>();
+            // for each coin slot, add that coin to
+            // the list a number of times that matches
+            // the quantity
+            // decrement the slot quantity to reflect
+            // the emptying
+            foreach(CoinSlot slot in slots)
+            {
+                int counter = slot.getQuantity();
+                for(int i = 0; i<counter; i++)
+                {
+                    allCoins.Add(slot.getType());
+                    slot.decQuantity();
+                }
+            }
+            return allCoins;
         }
 
         public int getInsertValue()

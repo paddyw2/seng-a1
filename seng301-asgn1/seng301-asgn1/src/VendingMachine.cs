@@ -102,12 +102,14 @@ namespace seng301_asgn1
 
         public List<IList> teardown()
         {
+            Console.WriteLine("Teardown...");
+            List<Coin> change = coinChute.emptyCoinSlots();
             List<Coin> bank = coinChute.getBankedCoins();
-            // still got to get remaining change coins
-            // and remaining pops from each respective
-            // chute  
+            List<Pop> pops = popChute.emptyPopSlots();
 
-            return new List<IList>();
+            List<IList> returnList = new List<IList> { change, bank, pops };
+
+            return returnList;
         }
 
         public int getId()

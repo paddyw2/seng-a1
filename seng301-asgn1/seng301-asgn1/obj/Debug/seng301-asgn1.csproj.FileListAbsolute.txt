@@ -5,3 +5,10 @@ C:\Users\Paddy\Source\Repos\seng-a1\seng301-asgn1\seng301-asgn1\bin\Debug\gramma
 C:\Users\Paddy\Source\Repos\seng-a1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.csprojResolveAssemblyReference.cache
 C:\Users\Paddy\Source\Repos\seng-a1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.exe
 C:\Users\Paddy\Source\Repos\seng-a1\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.pdb
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.exe.config
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.exe
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.pdb
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.exe
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\bin\Debug\seng301-asgn1.pdb
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\bin\Debug\grammatica-1.6.dll
+C:\Users\Paddy\Source\seng-a1\seng-a1-master\seng301-asgn1\seng301-asgn1\obj\Debug\seng301-asgn1.csprojResolveAssemblyReference.cache

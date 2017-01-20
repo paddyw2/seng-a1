@@ -33,6 +33,11 @@ namespace seng301_asgn1
             return popType.Name;
         }
 
+        public Pop getType()
+        {
+            return popType;
+        }
+
         public void setQuantity(int val)
         {
             quantity = val;

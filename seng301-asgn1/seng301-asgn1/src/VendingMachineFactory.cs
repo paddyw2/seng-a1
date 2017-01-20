@@ -92,11 +92,9 @@ namespace seng301_asgn1 {
             // 2. Money in da bank
             // 3. Unsold pops
             Console.WriteLine("VF: Unloading vending machine");
-
-            return new List<IList>() {
-                new List<Coin>(),
-                new List<Coin>(),
-                new List<Pop>() };
+            VendingMachine machine = getMachineById(vmIndex);
+            List<IList> teardownItems = machine.teardown();
+            return teardownItems;
         }
 
         // Helper Methods

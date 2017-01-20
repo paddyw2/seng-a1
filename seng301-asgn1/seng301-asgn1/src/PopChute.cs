@@ -57,5 +57,22 @@ namespace seng301_asgn1
             return success;
         }
 
+        public List<Pop> emptyPopSlots()
+        {
+            List<Pop> allPops = new List<Pop>();
+            foreach(PopSlot slot in slots)
+            {
+                int counter = slot.getQuantity();
+                for(int i = 0; i<counter; i++)
+                {
+                    allPops.Add(slot.getType());
+                    slot.decQuantity();
+                }
+            }
+            return allPops;
+        }
+
+
+
     }
 }
