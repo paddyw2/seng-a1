@@ -40,20 +40,19 @@ namespace seng301_asgn1
             }
         }
 
-        public bool removePop(Pop pop)
+        public Pop removePop(Pop pop)
         {
-            bool success = false;
+            Pop chosenPop = null;
             foreach(PopSlot slot in slots)
             {
                 Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
                 if(pop.Name.Equals(slot.getName()) && slot.getQuantity() > 0)
                 {
-                    slot.decQuantity();
-                    success = true;
+                    chosenPop = slot.removePop();
                     break;
                 }
             }
-            return success;
+            return chosenPop;
         }
 
         public List<Pop> emptyPopSlots()
@@ -61,10 +60,11 @@ namespace seng301_asgn1
             List<Pop> allPops = new List<Pop>();
             foreach(PopSlot slot in slots)
             {
-                int counter = slot.getQuantity();
-                for(int i = 0; i<counter; i++)
+
+                List<Pop> slotPops = slot.getSlotContents();
+                foreach(Pop pop in slotPops)
                 {
-                    allPops.Add(slot.getType());
+                    allPops.Add(pop);
                     slot.decQuantity();
                 }
             }

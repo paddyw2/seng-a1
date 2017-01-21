@@ -80,18 +80,28 @@ namespace seng301_asgn1
                     }
                 }
 
+                // check if largest coin is null
+                // if so, then we have not found
+                // a suitable change coin (we will
+                // short change them)
+                if (largestSlot == null)
+                    return coinChange;
+
                 // now we have next largest coin
                 // decrease until target met
                 bool runLoop = true;
                 bool changeFinished = false;
-                while (runLoop)
+                while (runLoop && largestSlot.getQuantity() > 0)
                 {
                     val = val - largestCoinVal;
                     if(val>=0)
                     {
-                        coinChange.Add(largestSlot.getType());
-                        Console.WriteLine("Dispensing change: " + (largestSlot.getType()).Value);
-                        largestSlot.decQuantity();
+                        // returned coin may be incorrect if the
+                        // slot was loaded incorrectly - this is
+                        // the desired functionality
+                        Coin changeCoin = largestSlot.removeCoin();
+                        coinChange.Add(changeCoin);
+                        Console.WriteLine("Dispensing coin: " + changeCoin.Value);
                         if (val == 0)
                         {
                             runLoop = false;

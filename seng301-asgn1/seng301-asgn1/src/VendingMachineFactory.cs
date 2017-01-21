@@ -119,6 +119,9 @@ namespace seng301_asgn1 {
                     break;
                 }
             }
+            if (machine == null)
+                throw new Exception("Invalid machine ID: " + id);
+
             return machine;
         }
 

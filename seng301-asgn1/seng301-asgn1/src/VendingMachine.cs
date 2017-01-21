@@ -78,19 +78,21 @@ namespace seng301_asgn1
                 Console.WriteLine("Price: " + price + " Change: " + change);
                 List<Coin> changeCoins = coinChute.releaseChange(change);
                 // decrement pop from chute
-                bool success = popChute.removePop(pop);
-                if (success) {
-                    dispenser.dispenseItems(pop, changeCoins);
+                // to get actual pop in slot
+                // returned pop may not be chosen pop if
+                // slots were loaded incorrectly (this is
+                // the desired functionality)
+                Pop physicalPop = popChute.removePop(pop);
+                if (pop != null) {
+                    dispenser.dispenseItems(physicalPop, changeCoins);
                 }
                 else
                 {
                     // if either no matching pop found, or
                     // not enough pops then
                     // only dispense change
-
                     Console.WriteLine("Not enough pops: swallowing change");
-                    pop = null;
-                    dispenser.dispenseItems(pop, changeCoins);
+                    dispenser.dispenseItems(physicalPop, changeCoins);
                 }
             }
 

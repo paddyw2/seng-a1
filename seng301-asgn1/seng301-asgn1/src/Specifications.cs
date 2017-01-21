@@ -41,13 +41,13 @@ namespace seng301_asgn1
 
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
-            if ((popNames.Capacity-1) != popButtons)
+            if ((popNames.Count) != popButtons)
                 throw new Exception("Buttons and pop varieties differ: " + popNames.Capacity + ", " + popButtons);
 
-            if (popNames.Capacity != popCosts.Capacity)
+            if (popNames.Count != popCosts.Count)
                 throw new Exception("Number of pops different to number of prices");
 
-            for (int i = 0; i < (popNames.Capacity-1); i++)
+            for (int i = 0; i < (popNames.Count); i++)
             {
                 string name = popNames.ElementAt(i);
                 int price = popCosts.ElementAt(i);

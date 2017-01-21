@@ -9,6 +9,7 @@ namespace seng301_asgn1
 {
     public class CoinSlot
     {
+        List<Coin> slotItems;
         int quantity;
         Coin coinType;
 
@@ -16,6 +17,7 @@ namespace seng301_asgn1
         {
             quantity = 0;
             coinType = new Coin(coin.Value);
+            slotItems = new List<Coin>();
         }
 
         public void loadCoins(List<Coin> coins)
@@ -25,9 +27,23 @@ namespace seng301_asgn1
             int coinVal = coinType.Value;
             foreach(Coin coin in coins)
             {
-                Console.WriteLine("Loading coin: " + coinType.Value);
+                Console.WriteLine("Loading coin: " + coin.Value);
+                slotItems.Add(coin);
                 incQuantity();
             }
+        }
+
+        public Coin removeCoin()
+        {
+            Coin coin = slotItems.Last();
+            slotItems.Remove(slotItems.Last());
+            decQuantity();
+            return coin;
+        }
+
+        public List<Coin> getSlotContents()
+        {
+            return slotItems;
         }
 
         public void setQuantity(int val)

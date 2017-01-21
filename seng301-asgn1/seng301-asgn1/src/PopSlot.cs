@@ -9,6 +9,7 @@ namespace seng301_asgn1
 {
     public class PopSlot
     {
+        private List<Pop> popItems;
         private int quantity;
         private Pop popType;
 
@@ -16,6 +17,7 @@ namespace seng301_asgn1
         {
             popType = new Pop(pop.Name);
             quantity = 0;
+            popItems = new List<Pop>();
         }
 
         public void loadPops(List<Pop> pops)
@@ -24,14 +26,28 @@ namespace seng301_asgn1
             // correct type
             foreach(Pop pop in pops)
             {
-                Console.WriteLine("Loading pop: " + getName());
+                Console.WriteLine("Loading pop: " + pop.Name);
+                popItems.Add(pop);
                 incQuantity();
             }
+        }
+
+        public List<Pop> getSlotContents()
+        {
+            return popItems;
         }
 
         public string getName()
         {
             return popType.Name;
+        }
+
+        public Pop removePop()
+        {
+            Pop item = popItems.Last();
+            popItems.Remove(popItems.Last());
+            decQuantity();
+            return item;
         }
 
         public Pop getType()

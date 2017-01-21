@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="test-scripts\T02-good-script2" />
+    <None Include="test-scripts\T03-good-script3" />
     <None Include="test-scripts\U03-bad-script3" />
     <Compile Include="src\CoinChute.cs" />
     <Compile Include="src\CoinSlot.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="src\VendingMachineFactory.cs" />
     <Compile Include="src\VendingPop.cs" />
     <None Include="test-scripts\U04-bad-script4" />
+    <None Include="test-scripts\U05-bad-script5" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
