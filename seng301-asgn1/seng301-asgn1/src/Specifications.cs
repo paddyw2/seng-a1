@@ -41,6 +41,10 @@ namespace seng301_asgn1
 
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
+            // to allow machine to be reconfigured
+            // to accept different pops
+            acceptedPops.Clear();
+
             if ((popNames.Count) != popButtons)
                 throw new Exception("Buttons and pop varieties differ: " + popNames.Capacity + ", " + popButtons);
 

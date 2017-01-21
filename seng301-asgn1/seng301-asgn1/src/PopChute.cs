@@ -17,6 +17,12 @@ namespace seng301_asgn1
 
         public void createSlots(List<Pop> listOfPops)
         {
+            // reset slots so that machine can
+            // be reconfigured to accept different
+            // pops
+            slots.Clear();
+
+            // create new slots for specified pops
             foreach(Pop pop in listOfPops)
             {
                 PopSlot newSlot = new PopSlot(pop);
@@ -26,8 +32,6 @@ namespace seng301_asgn1
 
         public void loadPops(int index, List<Pop> pops)
         {
-            // first create slots
-            createSlots(pops);
             int counter = 0;
             foreach (PopSlot slot in slots)
             {

@@ -30,6 +30,14 @@ namespace seng301_asgn1
         public void configurePop(List<string> popNames, List<int> popCosts)
         {
             specs.configurePop(popNames, popCosts);
+            List<Pop> pops = new List<Pop>();
+            foreach(string name in popNames)
+            {
+                Pop addedPop = new Pop(name);
+                pops.Add(addedPop);
+            }
+            // create a slot for each pop
+            popChute.createSlots(pops);
         }
 
         public void loadCoins(int coinKindIndex, List<Coin> coins)
