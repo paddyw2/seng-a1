@@ -31,7 +31,16 @@ namespace seng301_asgn1
 
         public List<Deliverable> extractItems()
         {
-            return dispensedItems;
+            // copy dispensed items to a new list
+            // to allow instance variable to be
+            // reset before returning list
+            List<Deliverable> dispenserItems = new List<Deliverable>();
+            foreach(Deliverable item in dispensedItems)
+            {
+                dispenserItems.Add(item);
+            }
+            clearDispenser(); 
+            return dispenserItems;
         }
 
         public void clearDispenser()

@@ -49,6 +49,7 @@ namespace seng301_asgn1
             bool validCoin = specs.checkCoinType(coin);
 
             // if valid, then insert into chute
+            // else, send it straight to the dispenser
             if (validCoin)
                 coinChute.insertCoin(coin);
             else
