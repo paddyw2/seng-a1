@@ -14,3 +14,8 @@ Bad Scripts:
 5. Invalid pop name (with symbol)
 6. Duplicate coin value
 7. More pops than slots
+
+Questions:
+1. If no desired pop, dispense a null pop and change, or
+do nothing and wait for another selection?
+2. Can re-configure machine to accept different pops?

@@ -79,13 +79,9 @@ namespace seng301_asgn1
             if(val < price)
             {
                 // do nothing
-                Console.WriteLine("Not enough money: swallowing change");
+                Console.WriteLine("Not enough money: make another selection");
             } else
             {
-                // calc change and dispense pop
-                int change = val - price;
-                Console.WriteLine("Price: " + price + " Change: " + change);
-                List<Coin> changeCoins = coinChute.releaseChange(change);
                 // decrement pop from chute
                 // to get actual pop in slot
                 // returned pop may not be chosen pop if
@@ -93,20 +89,28 @@ namespace seng301_asgn1
                 // the desired functionality)
                 Pop physicalPop = popChute.removePop(pop);
                 if (pop != null) {
+                    // calc change and dispense pop
+                    int change = val - price;
+                    Console.WriteLine("Price: " + price + " Change: " + change);
+                    List<Coin> changeCoins = coinChute.releaseChange(change);
                     dispenser.dispenseItems(physicalPop, changeCoins);
+
+                    // bank inserted money and reset inserted value
+                    coinChute.bankInsertValue();
                 }
                 else
                 {
                     // if either no matching pop found, or
                     // not enough pops then
                     // only dispense change
-                    Console.WriteLine("Not enough pops: swallowing change");
-                    dispenser.dispenseItems(physicalPop, changeCoins);
+
+                    Console.WriteLine("Not enough pops: make another selection");
+                    
+                    // old change swallowing code
+                    //Console.WriteLine("Not enough pops: swallowing change");
+                    //dispenser.dispenseItems(physicalPop, changeCoins);
                 }
             }
-
-            // bank inserted money and reset inserted value
-            coinChute.bankInsertValue();
         }
 
         public List<Deliverable> extractItems()
