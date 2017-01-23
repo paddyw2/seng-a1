@@ -72,9 +72,12 @@
     <Compile Include="src\VendingMachineFactory.cs" />
     <Compile Include="src\VendingPop.cs" />
     <None Include="test-scripts\U04-bad-script4" />
+    <None Include="test-scripts\U09-bad-script9" />
+    <None Include="test-scripts\U08-bad-script8" />
     <None Include="test-scripts\U05-bad-script5" />
     <None Include="test-scripts\U06-bad-script6" />
     <None Include="test-scripts\U07-bad-script7" />
+    <None Include="test-scripts\U10-bad-script10" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

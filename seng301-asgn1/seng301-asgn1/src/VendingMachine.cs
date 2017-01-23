@@ -121,7 +121,7 @@ namespace seng301_asgn1
         public List<IList> teardown()
         {
             List<Coin> change = coinChute.emptyCoinSlots();
-            List<Coin> bank = coinChute.getBankedCoins();
+            List<Coin> bank = coinChute.emptyBankedCoins();
             List<Pop> pops = popChute.emptyPopSlots();
 
             List<IList> returnList = new List<IList> { change, bank, pops };

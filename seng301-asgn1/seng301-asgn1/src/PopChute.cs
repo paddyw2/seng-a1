@@ -64,18 +64,13 @@ namespace seng301_asgn1
             List<Pop> allPops = new List<Pop>();
             foreach(PopSlot slot in slots)
             {
-
-                List<Pop> slotPops = slot.getSlotContents();
-                foreach(Pop pop in slotPops)
+                int counter = slot.getQuantity();
+                for(int i=0;i<counter;i++)
                 {
-                    allPops.Add(pop);
-                    slot.decQuantity();
+                    allPops.Add(slot.removePop());
                 }
             }
             return allPops;
         }
-
-
-
     }
 }

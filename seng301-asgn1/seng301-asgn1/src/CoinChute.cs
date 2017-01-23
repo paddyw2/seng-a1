@@ -12,7 +12,12 @@ namespace seng301_asgn1
         private List<CoinSlot> slots;
         private int insertValue;
         private int bankedValue;
+        // coins that will be returned
+        // on teardown
         private List<Coin> bankedCoins;
+        // coins that are "in limbo" until
+        // a valid pop choice/money combo
+        // is made
         private List<Coin> insertedCoins;
         
         public CoinChute(List<Coin> listOfCoins)
@@ -66,7 +71,10 @@ namespace seng301_asgn1
             int upperBound = val + 1;
             int largestCoinVal = 0;
 
-            // loop
+            // loop through coin slots to find
+            // next denomination
+            // if found, sets the largestSlot
+            // to a Coin, which has a value
             while (true)
             {
                 CoinSlot largestSlot = null;
@@ -88,20 +96,29 @@ namespace seng301_asgn1
                     return coinChange;
 
                 // now we have next largest coin
-                // decrease until target met
+                // decrease until target met, each
+                // time removing a coin from the
+                // coin slot, and adding it to the
+                // coin change list
                 bool runLoop = true;
                 bool changeFinished = false;
                 while (runLoop && largestSlot.getQuantity() > 0)
                 {
+                    // decrement change total by coin
+                    // denomination
                     val = val - largestCoinVal;
                     if(val>=0)
                     {
-                        // returned coin may be incorrect if the
+                        // returned coin may be "incorrect" if the
                         // slot was loaded incorrectly - this is
                         // the desired functionality
                         Coin changeCoin = largestSlot.removeCoin();
                         coinChange.Add(changeCoin);
                         Console.WriteLine("Dispensing coin: " + changeCoin.Value);
+
+                        // if new change value is zero, all change
+                        // has been added to the coin change list
+                        // so terminate loop
                         if (val == 0)
                         {
                             runLoop = false;
@@ -109,25 +126,37 @@ namespace seng301_asgn1
                         }
                     } else
                     {
+                        // if change value is negative, reverse
+                        // last decrement and move to lower
+                        // denomination
                         val = val + largestCoinVal;
                         runLoop = false;
                     }
                 }
 
+                // if change finished flag is set, then
+                // exit main loop
                 if (changeFinished)
                     break;
 
+                // else, reset variables and start next
+                // loop to find lower denomination
                 upperBound = largestCoinVal;
                 largestCoinVal = 0;
             }
 
-            // run whole loop again until remainder = 0
             return coinChange;
         }
 
-        public List<Coin> getBankedCoins()
+        public List<Coin> emptyBankedCoins()
         {
-            return bankedCoins;
+            List<Coin> returnItems = new List<Coin>();
+            foreach(Coin coin in bankedCoins)
+            {
+                returnItems.Add(coin);
+            }
+            bankedCoins.Clear();
+            return returnItems;
         }
 
         public List<Coin> emptyCoinSlots()
@@ -141,10 +170,9 @@ namespace seng301_asgn1
             foreach(CoinSlot slot in slots)
             {
                 int counter = slot.getQuantity();
-                for(int i = 0; i<counter; i++)
+                for(int i=0;i<counter;i++)
                 {
-                    allCoins.Add(slot.getType());
-                    slot.decQuantity();
+                    allCoins.Add(slot.removeCoin());
                 }
             }
             return allCoins;
