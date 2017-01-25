@@ -21,7 +21,7 @@ Good Scripts:
 Must check:
 Slot loading is reflected when removing pops/coins, in a queue order (i.e. FIFO)
 Multiple vending machine instances
-Must comment print statements
+Must comment out print statements
 
 Bad Scripts:
 1. Default provided script
