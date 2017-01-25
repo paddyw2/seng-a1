@@ -33,8 +33,15 @@ namespace seng301_asgn1
             List<Pop> pops = new List<Pop>();
             foreach(string name in popNames)
             {
-                Pop addedPop = new Pop(name);
-                pops.Add(addedPop);
+                // check name is valid
+                if (name.All(Char.IsLetter))
+                {
+                    Pop addedPop = new Pop(name);
+                    pops.Add(addedPop);
+                } else
+                {
+                    throw new Exception("Invalid pop name: " + name);
+                }
             }
             // create a slot for each pop
             popChute.createSlots(pops);
@@ -88,7 +95,7 @@ namespace seng301_asgn1
                 // slots were loaded incorrectly (this is
                 // the desired functionality)
                 Pop physicalPop = popChute.removePop(pop);
-                if (pop != null) {
+                if (physicalPop != null) {
                     // calc change and dispense pop
                     int change = val - price;
                     Console.WriteLine("Price: " + price + " Change: " + change);

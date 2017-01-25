@@ -35,8 +35,11 @@ namespace seng301_asgn1
 
         public Coin removeCoin()
         {
-            Coin coin = slotItems.Last();
-            slotItems.Remove(slotItems.Last());
+            Coin coin = null;
+            if (quantity == 0)
+                return null;
+            coin = slotItems.First();
+            slotItems.Remove(slotItems.First());
             decQuantity();
             return coin;
         }

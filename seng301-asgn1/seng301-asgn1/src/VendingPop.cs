@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * VendingPop
+ * 
+ * A subset of Pop class designed
+ * to hold both a name and price
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

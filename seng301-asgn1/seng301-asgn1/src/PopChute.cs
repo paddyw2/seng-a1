@@ -49,13 +49,14 @@ namespace seng301_asgn1
             Pop chosenPop = null;
             foreach(PopSlot slot in slots)
             {
-                Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
-                if(pop.Name.Equals(slot.getName()) && slot.getQuantity() > 0)
+                if((pop.Name).Equals(slot.getName()))
                 {
+                    Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
                     chosenPop = slot.removePop();
                     break;
                 }
             }
+
             return chosenPop;
         }
 

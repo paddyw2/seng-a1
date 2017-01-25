@@ -44,8 +44,11 @@ namespace seng301_asgn1
 
         public Pop removePop()
         {
-            Pop item = popItems.Last();
-            popItems.Remove(popItems.Last());
+            Pop item = null;
+            if (quantity == 0)
+                return item;
+            item = popItems.First();
+            popItems.Remove(popItems.First());
             decQuantity();
             return item;
         }

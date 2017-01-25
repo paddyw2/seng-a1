@@ -26,6 +26,9 @@ namespace seng301_asgn1
             acceptedCoins = new List<Coin>();
             foreach (int coinKind in listOfCoins)
             {
+                // check coin value is valid
+                if (coinKind <= 0)
+                    throw new Exception("Invalid coin value: " + coinKind);
                 // search acceptedCoins for duplicate
                 foreach (Coin coin in acceptedCoins)
                 {
@@ -77,6 +80,9 @@ namespace seng301_asgn1
 
         public VendingPop getPopByIndex(int index)
         {
+            if (index >= popButtons)
+                throw new Exception("Invalid button: " + index);
+
             int counter = 0;
             VendingPop returnPop = null;
             foreach(VendingPop pop in acceptedPops)
@@ -86,6 +92,7 @@ namespace seng301_asgn1
                     returnPop = pop;
                     break;
                 }
+                counter++;
             }
             return returnPop;
         }

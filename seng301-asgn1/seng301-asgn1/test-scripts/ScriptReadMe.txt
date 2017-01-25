@@ -5,20 +5,23 @@ Good Scripts:
 2. Wrong coins loaded should affect change (i.e. if change=5c, but loaded with 25c, change should be 25c)
 3. Loaded coins cannot match change value should short change
 4. Machine can be reconfigured to accept different pops
+5. An incorrect pop can be loaded
+6. An incorrect coin can be loaded
+7. Incorrect coin insertions ends up in dispenser
+8. Check wrong pop load on teardown
+9. Check wrong coin load on teardown
+10. Check bank, and pop and coins slots are empty after teardown
+11. In limbo value after no valid selection made (i.e. 40c inserted) - this value should not be included in teardown
+12. If not enough pop, nothing should happen (still has credit, able to buy another pop)
+13. If not enough money, nothing should happen (still has credit, able to buy another pop)
+14. Short changes due to no change left
+15. Short changes due to invalid denomations (i.e. 33c with only 5c coins)
+16. Short change (no change) due to invalid denomations (i.e. 50c with only 100c coins)
 
 Must check:
-Wrong pop load success
-Wrong coin load success
-Wrong coin inserted should end up in dispenser
-Check wrong coin load on teardown
-Check wrong pop load on teardown
-Check bank, and pop and coins slots are empty after teardown
-In limbo value after no valid selection made (i.e. 40c inserted) - this value should not be included in teardown
-If not enough money, nothing should happen (still has credit)
-If not enough pop, nothing should happen (still has credit)
-Check short changing due to no change
-Check short changing due to invalid denominations (i.e. 33c with only 5c coins)
-Check short chaning due to invalid denominations (i.e. 50c with only 100c coins)
+Slot loading is reflected when removing pops/coins, in a queue order (i.e. FIFO)
+Multiple vending machine instances
+Must comment print statements
 
 Bad Scripts:
 1. Default provided script
