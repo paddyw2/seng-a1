@@ -27,7 +27,7 @@ namespace seng301_asgn1
             int coinVal = coinType.Value;
             foreach(Coin coin in coins)
             {
-                Console.WriteLine("Loading coin: " + coin.Value);
+                //Console.WriteLine("Loading coin: " + coin.Value);
                 slotItems.Add(coin);
                 incQuantity();
             }

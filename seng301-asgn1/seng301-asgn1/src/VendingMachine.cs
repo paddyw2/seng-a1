@@ -15,7 +15,7 @@ namespace seng301_asgn1
         private Dispenser dispenser;
         public VendingMachine()
         {
-            Console.WriteLine("No parameters provided!");
+            throw new Exception("No parameters provided");
         }
 
         public VendingMachine(int machineId, List<int> listOfCoins, int buttonCount)
@@ -75,7 +75,7 @@ namespace seng301_asgn1
         {
             // get pop by button index
             VendingPop pop = specs.getPopByIndex(buttonIndex);
-            Console.WriteLine("Pop: " + pop.Name);
+            //Console.WriteLine("Pop: " + pop.Name);
 
             // get pop price
             int price = pop.getCost();
@@ -86,7 +86,7 @@ namespace seng301_asgn1
             if(val < price)
             {
                 // do nothing
-                Console.WriteLine("Not enough money: make another selection");
+                //Console.WriteLine("Not enough money: make another selection");
             } else
             {
                 // decrement pop from chute
@@ -98,7 +98,7 @@ namespace seng301_asgn1
                 if (physicalPop != null) {
                     // calc change and dispense pop
                     int change = val - price;
-                    Console.WriteLine("Price: " + price + " Change: " + change);
+                    //Console.WriteLine("Price: " + price + " Change: " + change);
                     List<Coin> changeCoins = coinChute.releaseChange(change);
                     dispenser.dispenseItems(physicalPop, changeCoins);
 
@@ -111,7 +111,7 @@ namespace seng301_asgn1
                     // not enough pops then
                     // only dispense change
 
-                    Console.WriteLine("Not enough pops: make another selection");
+                    //Console.WriteLine("Not enough pops: make another selection");
                     
                     // old change swallowing code
                     //Console.WriteLine("Not enough pops: swallowing change");

@@ -51,7 +51,7 @@ namespace seng301_asgn1
             {
                 if((pop.Name).Equals(slot.getName()))
                 {
-                    Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
+                    //Console.WriteLine("Requested: " + slot.getName() + " Our Stock: " + slot.getQuantity());
                     chosenPop = slot.removePop();
                     break;
                 }

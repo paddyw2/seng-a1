@@ -20,11 +20,11 @@ namespace seng301_asgn1
             if (pop != null)
             {
                 dispensedItems.Add(pop);
-                Console.WriteLine("Delivery chute: " + pop.Name);
+                //Console.WriteLine("Delivery chute: " + pop.Name);
             }
             foreach(Coin coin in changeList)
             {
-                Console.WriteLine("Delivery chute: " + coin.Value);
+                //Console.WriteLine("Delivery chute: " + coin.Value);
                 dispensedItems.Add(coin);
             }
         }

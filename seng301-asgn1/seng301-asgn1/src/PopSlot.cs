@@ -26,7 +26,7 @@ namespace seng301_asgn1
             // correct type
             foreach(Pop pop in pops)
             {
-                Console.WriteLine("Loading pop: " + pop.Name);
+                //Console.WriteLine("Loading pop: " + pop.Name);
                 popItems.Add(pop);
                 incQuantity();
             }

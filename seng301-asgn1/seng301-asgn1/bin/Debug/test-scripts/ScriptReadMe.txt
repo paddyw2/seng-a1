@@ -17,10 +17,9 @@ Good Scripts:
 14. Short changes due to no change left
 15. Short changes due to invalid denomations (i.e. 33c with only 5c coins)
 16. Short change (no change) due to invalid denomations (i.e. 50c with only 100c coins)
-
-Must check:
-Slot loading is reflected when removing pops/coins, in a queue order (i.e. FIFO)
-Multiple vending machine instances
+17. Slot loading is reflected when removing coins, in a queue order (i.e. FIFO)
+18. Slot loading is reflected when removing pops, in a queue order (i.e. FIFO)
+19. Multiple machine instances
 
 Bad Scripts:
 1. Default provided script
@@ -33,3 +32,4 @@ Bad Scripts:
 8. Invalid coin value (negative)
 9. Invalid pop price (0)
 10. Invalid pop price (negative)
+11. Empty machine parameters

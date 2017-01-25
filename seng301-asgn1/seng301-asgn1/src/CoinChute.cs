@@ -50,7 +50,7 @@ namespace seng301_asgn1
 
         public void insertCoin(Coin coin)
         {
-            Console.WriteLine("Inserting coin: " + coin.Value);
+            //Console.WriteLine("Inserting coin: " + coin.Value);
             insertValue = insertValue + coin.Value;
             insertedCoins.Add(coin);
         }
@@ -114,7 +114,7 @@ namespace seng301_asgn1
                         // the desired functionality
                         Coin changeCoin = largestSlot.removeCoin();
                         coinChange.Add(changeCoin);
-                        Console.WriteLine("Dispensing coin: " + changeCoin.Value);
+                        //Console.WriteLine("Dispensing coin: " + changeCoin.Value);
 
                         // if new change value is zero, all change
                         // has been added to the coin change list

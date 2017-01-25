@@ -55,7 +55,7 @@ namespace seng301_asgn1 {
         public void configureVendingMachine(int vmIndex, List<string> popNames, List<int> popCosts) {
             // configures the chosen machine with accepted pops by name, along
             // with their costs
-            Console.WriteLine("VF: Configuring...");
+            //Console.WriteLine("VF: Configuring...");
             VendingMachine machine = getMachineById(vmIndex);
             machine.configurePop(popNames, popCosts);
         }
@@ -81,7 +81,7 @@ namespace seng301_asgn1 {
         public void pressButton(int vmIndex, int value) {
             // presses a button (indicating a pop) on the
             // chosen machine
-            Console.WriteLine("VF: Pressing button...");
+            //Console.WriteLine("VF: Pressing button...");
             VendingMachine machine = getMachineById(vmIndex);
             machine.pressButton(value);
         }
@@ -89,7 +89,7 @@ namespace seng301_asgn1 {
         public List<Deliverable> extractFromDeliveryChute(int vmIndex) {
             // returns both the purchased pop and appropriate change
             // that is sitting inside the delivery chute
-            Console.WriteLine("VF: Extracting deliverable from chute");
+            //Console.WriteLine("VF: Extracting deliverable from chute");
             VendingMachine machine = getMachineById(vmIndex);
             List<Deliverable> items = machine.extractItems();
             return items;
@@ -98,7 +98,7 @@ namespace seng301_asgn1 {
         public List<IList> unloadVendingMachine(int vmIndex) {
             // removes inserted money, remaining change, and unsold
             // pops from the chosen machine
-            Console.WriteLine("VF: Unloading/teardown");
+            //Console.WriteLine("VF: Unloading/teardown");
             VendingMachine machine = getMachineById(vmIndex);
             List<IList> teardownItems = machine.teardown();
             return teardownItems;
