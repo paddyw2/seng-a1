@@ -124,7 +124,5 @@ namespace seng301_asgn1 {
 
             return machine;
         }
-
-
     }
 }

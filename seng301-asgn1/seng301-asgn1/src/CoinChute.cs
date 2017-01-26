@@ -71,12 +71,16 @@ namespace seng301_asgn1
             int upperBound = val + 1;
             int largestCoinVal = 0;
 
-            // loop through coin slots to find
-            // next denomination
-            // if found, sets the largestSlot
-            // to a Coin, which has a value
+            // loop change process until either
+            // no more valid coins, or change
+            // value is met (where the loop will
+            // be broken)
             while (true)
             {
+                // loop through coin slots to find
+                // next denomination
+                // if found, sets the largestSlot
+                // to a Coin, which has a value
                 CoinSlot largestSlot = null;
                 foreach (CoinSlot slot in slots)
                 {

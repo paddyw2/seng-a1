@@ -20,6 +20,7 @@ Good Scripts:
 17. Slot loading is reflected when removing coins, in a queue order (i.e. FIFO)
 18. Slot loading is reflected when removing pops, in a queue order (i.e. FIFO)
 19. Multiple machine instances
+20. If credit in machine on teardown, this is not included on teardown and can be used again when machine re-stocked
 
 Bad Scripts:
 1. Default provided script
@@ -33,3 +34,4 @@ Bad Scripts:
 9. Invalid pop price (0)
 10. Invalid pop price (negative)
 11. Empty machine parameters
+12. Less pops than slots

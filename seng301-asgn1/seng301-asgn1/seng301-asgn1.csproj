@@ -66,6 +66,7 @@
     <None Include="test-scripts\T17-good-script17" />
     <None Include="test-scripts\T18-good-script18" />
     <None Include="test-scripts\T19-good-script19" />
+    <None Include="test-scripts\T20-good-script20" />
     <None Include="test-scripts\U03-bad-script3" />
     <Compile Include="src\CoinChute.cs" />
     <Compile Include="src\CoinSlot.cs" />
@@ -94,6 +95,7 @@
     <None Include="test-scripts\U07-bad-script7" />
     <None Include="test-scripts\U10-bad-script10" />
     <None Include="test-scripts\U11-bad-script11" />
+    <None Include="test-scripts\U12-bad-script12" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -33,3 +33,4 @@ Bad Scripts:
 9. Invalid pop price (0)
 10. Invalid pop price (negative)
 11. Empty machine parameters
+12. Less pops than slots
