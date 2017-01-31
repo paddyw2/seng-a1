@@ -4,7 +4,7 @@
 
 You are given a specification and a partially working piece of (stubbed) code that represents a vending machine (the kind that vends pop). Your job is to write the code to fulfill the test specification with (likely) only a partial understanding of the system as a whole.
 
-Classes changed:
+Classes created/changed:
 * VendingMachineFactory.cs
 * VendingMachine.cs
 * VendingPop.cs
